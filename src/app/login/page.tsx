@@ -26,6 +26,7 @@ export default function Login() {
         })
         .then(response => response.json())
         .then(data => {
+            localStorage.setItem('token', data.token);
             console.log('Success:', data);
         })
         .catch(error => {
