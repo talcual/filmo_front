@@ -2,9 +2,10 @@
 'use client'
 
 import { useState } from  'react'
+import { serialize } from 'cookie'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-
-export default function Login() {
+export default function Login(req: NextApiRequest, res: NextApiResponse) {
   
     const [user, setUser] = useState({
         usuario: 'Hola, Usuario',
@@ -27,6 +28,12 @@ export default function Login() {
         .then(response => response.json())
         .then(data => {
             localStorage.setItem('token', data.token);
+
+            const d = new Date();
+            d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000)); // 7 days in milliseconds
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = "token="+data.token+";" + expires + ";path=/";
+
             console.log('Success:', data);
         })
         .catch(error => {
