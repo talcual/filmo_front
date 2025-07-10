@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
   console.log('Running middleware');
   console.log('Token Local', token)
 
-  let JWS = '...';
+  let JWS = '123654789abc!';
 
   if (!token) {
     return NextResponse.redirect(new URL('/login', request.url));
