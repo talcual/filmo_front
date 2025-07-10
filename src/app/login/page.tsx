@@ -2,10 +2,8 @@
 'use client'
 
 import { useState } from  'react'
-import { serialize } from 'cookie'
-import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default function Login(req: NextApiRequest, res: NextApiResponse) {
+export default function Login() {
   
     const [user, setUser] = useState({
         usuario: 'Hola, Usuario',
@@ -72,12 +70,12 @@ export default function Login(req: NextApiRequest, res: NextApiResponse) {
 
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e:any) => fillUser(e.target.value)} />
-                                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => fillUser(e.target.value)} />
+                                <div id="emailHelp" className="form-text">{ "We'll never share your email with anyone else." }</div>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e:any) => fillPasswd(e.target.value)} />
+                                <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => fillPasswd(e.target.value)} />
                             </div>
                             <div className="mb-3 form-check">
                                 <input type="checkbox" className="form-check-input" id="exampleCheck1"/>

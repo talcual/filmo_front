@@ -1,12 +1,10 @@
 
 import * as jose from 'jose'
 
-export async function verifyJwt(token: string, JWS: any) {
+export async function verifyJwt(token: string, JWS: string) {
   
-  let JWTS = new TextEncoder().encode(JWS);
-  let keyBytes = Uint8Array.from(atob(JWS), c => c.charCodeAt(0));
+  const keyBytes = Uint8Array.from(atob(JWS), c => c.charCodeAt(0));
   
-
   try {
     return await jose.jwtVerify(token, keyBytes)
   } catch (error) {

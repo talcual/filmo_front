@@ -3,17 +3,21 @@
 
 import { useEffect, useState} from "react";
 
+interface Film {
+    nombre:string, 
+    resumen:string,
+    idioma:string
+}
+
 export default function Home() {
 
 
     const [films, setFilms] = useState([]);
 
     useEffect(() => {
-        let token = localStorage.getItem('token') || null;
-    
-    
-
-        const Filmos = (token:any) => {
+        const token = localStorage.getItem('token') || null;
+ 
+        const Filmos = (token:string) => {
             
             fetch('http://localhost:3002/app/film/get?q=boy', {
                 method: 'GET',
@@ -65,7 +69,7 @@ export default function Home() {
             <div className="container px-lg-5">
                 <div className="row gx-lg-5">
                                           {
-                            films.map((film:any, index:number) => (
+                            films.map((film:Film, index:number) => (
                     <div className="col-lg-6 col-xxl-4 mb-5" key={index}>
 
 
