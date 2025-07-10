@@ -13,7 +13,7 @@ export default function Login() {
 
     const Login = () => {
         
-        fetch('http://localhost:3002/app/auth/login', {
+        fetch('https://quickest-corissa-toscanodev-1ef86f3a.koyeb.app/app/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

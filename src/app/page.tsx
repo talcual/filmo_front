@@ -19,7 +19,7 @@ export default function Home() {
  
         const Filmos = (token:string) => {
             
-            fetch('http://localhost:3002/app/film/get?q=boy', {
+            fetch('https://quickest-corissa-toscanodev-1ef86f3a.koyeb.app/app/film/get?q=boy', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
